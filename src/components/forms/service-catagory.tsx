@@ -1,12 +1,19 @@
 import { useCategoriesQuery } from "@/redux/api/categorieApi";
-import FormSelectField from "./formSelectField";
+import { Select } from "antd";
 
 type ServiceCategoreProps = {
-  name: string;
-  label: string;
+  name?: string;
+  label?: string;
+  setCategoryId: (value: string) => void;
+  categoryId?: string;
 };
 
-const ServiceCategoreField = ({ name, label }: ServiceCategoreProps) => {
+const ServiceCategoreField = ({
+  name,
+  label,
+  setCategoryId,
+  categoryId,
+}: ServiceCategoreProps) => {
   const { data, isLoading } = useCategoriesQuery({});
 
   const categories = data?.data;
@@ -19,7 +26,18 @@ const ServiceCategoreField = ({ name, label }: ServiceCategoreProps) => {
   });
 
   return (
-    <FormSelectField name={name} label={label} options={categoriesOptions} />
+    <Select
+      loading={isLoading}
+      size="large"
+      placeholder="Select Catagory"
+      style={{
+        width: "300px",
+        height: "50px",
+      }}
+      allowClear
+      options={categoriesOptions}
+      onChange={(value) => setCategoryId(value)}
+    />
   );
 };
 

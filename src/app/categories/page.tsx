@@ -1,3 +1,4 @@
+import CategoriesOption from "@/components/Categories";
 import SMBreadcrumb from "@/components/ui/Breadcrumb";
 import Container from "@/components/ui/container";
 import Footer from "@/components/ui/footer";
@@ -5,7 +6,7 @@ import Navbar from "@/components/ui/navHader";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Service | Catagory",
+  title: "Motel | Catagory",
 };
 
 const Categories = () => {
@@ -20,7 +21,14 @@ const Categories = () => {
             { label: "Categories", path: "/categories" },
           ]}
         />
-        <h1>Catagory</h1>
+        <div
+          style={{
+            marginTop: "20px",
+          }}
+        >
+          <h1>See All Category</h1>
+          <CategoriesOption />
+        </div>
       </Container>
 
       <Footer />

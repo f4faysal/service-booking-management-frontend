@@ -5,7 +5,7 @@ import Navbar from "@/components/ui/navHader";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Service",
+  title: "Motel",
 };
 
 const HomePage = () => {
