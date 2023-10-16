@@ -34,8 +34,8 @@ const ServiceCategoreField = ({
         width: "300px",
         height: "50px",
       }}
-      allowClear
       options={categoriesOptions}
+      value={categoryId}
       onChange={(value) => setCategoryId(value)}
     />
   );

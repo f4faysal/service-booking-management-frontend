@@ -114,7 +114,7 @@ const ServicesItem = () => {
             display: "flex",
             flexDirection: "row",
             justifyContent: "start",
-            gap: "20px",
+            gap: "10px",
             alignItems: "center",
             width: "70%",
             height: "90px",
@@ -125,10 +125,18 @@ const ServicesItem = () => {
             top: "70%",
           }}
         >
+          <p
+            style={{
+              marginLeft: "10px",
+            }}
+          >
+            Search
+          </p>
           <Input
             type="text"
             size="large"
             placeholder="Search ..."
+            value={searchTerm}
             style={{
               width: "300px",
               height: "50px",
@@ -138,6 +146,14 @@ const ServicesItem = () => {
               setSearchTerm(e.target.value);
             }}
           />
+
+          <p
+            style={{
+              marginLeft: "20px",
+            }}
+          >
+            Category
+          </p>
           <ServiceCategoreField
             setCategoryId={setCategoryId}
             categoryId={categoryId}
