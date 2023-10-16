@@ -8,6 +8,14 @@
 }
 
 /* Container.css */
+
+.containers {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* hader */
 .custom-header {
   background-color: #f3f4f6;
   color: #4b5563;
@@ -36,11 +44,21 @@
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: 0.5px;
-  color: #111827;
 }
 .nav-links .mr-5 {
   margin-right: 50px;
   text-decoration: none;
+}
+
+/* Carasol */
+
+.contentStyle {
+  height: "160px";
+  color: "#fff";
+  line-height: "160px";
+  text-align: "center";
+  background: "#364d79";
+  width: "100%";
 }
 
 /* Footer */
