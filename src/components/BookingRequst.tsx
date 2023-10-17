@@ -3,6 +3,7 @@
 import { useServicesQuery } from "@/redux/api/serviceApi";
 import { Rate } from "antd";
 import Image from "next/image";
+import BookingSchudle from "./BookingSchudle";
 
 const Booking = ({ id }: { id: string }) => {
   const { data } = useServicesQuery(id);
@@ -141,6 +142,9 @@ const Booking = ({ id }: { id: string }) => {
           </div>
         </div>
       </div>
+
+      {/* Booking Schdule */}
+      <BookingSchudle service={service} />
     </div>
   );
 };

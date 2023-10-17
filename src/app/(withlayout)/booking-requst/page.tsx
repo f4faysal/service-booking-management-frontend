@@ -1,9 +1,8 @@
+import { useRouter } from "next/router";
+
 const DashboardPage = () => {
-  return (
-    <div>
-      <h1>Welcome back to your Booking</h1>
-    </div>
-  );
+  const router = useRouter();
+  return router.push("/booking");
 };
 
 export default DashboardPage;
