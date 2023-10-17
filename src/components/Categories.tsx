@@ -3,13 +3,20 @@
 import { useCategoriesQuery } from "@/redux/api/categorieApi";
 import { Avatar, Card, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
+
+import { useRouter } from "next/navigation";
 import Subscribe from "./ui/Subscribe";
 
 const CategoriesOption = () => {
   const { data, isLoading } = useCategoriesQuery({});
 
+  const router = useRouter();
+
   const categories = data?.data;
-  console.log(categories);
+
+  const handelCatagory = (id: string) => {
+    router.push(`/categories/${id}`);
+  };
 
   return (
     <>
@@ -22,6 +29,7 @@ const CategoriesOption = () => {
           return (
             <Col span={4} order={i} key={i}>
               <Card
+                onClick={() => handelCatagory(category?.id)}
                 cover={
                   <Avatar
                     style={{

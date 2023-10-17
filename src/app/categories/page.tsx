@@ -26,7 +26,44 @@ const Categories = () => {
             marginTop: "20px",
           }}
         >
-          <h1>See All Category</h1>
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundColor: "#16162e",
+              margin: "20px 0",
+              borderRadius: "15px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "relative",
+            }}
+          >
+            <h1
+              style={{
+                color: "#fff",
+                fontSize: "50px",
+                fontWeight: "bold",
+              }}
+            >
+              All Categoris
+            </h1>
+            <br />
+            <div>
+              <SMBreadcrumb
+                items={[
+                  { label: "Home", path: "/" },
+                  { label: "Categories", path: "/categories" },
+                ]}
+                style={{
+                  color: "#fff",
+                  fontSize: "17px",
+                }}
+              />
+            </div>
+          </div>
+
           <CategoriesOption />
         </div>
       </Container>

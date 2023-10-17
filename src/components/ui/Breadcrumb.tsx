@@ -5,16 +5,18 @@ import { HomeOutlined } from "@ant-design/icons";
 
 const SMBreadcrumb = ({
   items,
+  style,
 }: {
   items: {
     label: string;
     path?: string;
   }[];
+  style?: React.CSSProperties;
 }) => {
   const breadCrumbItem = [
     {
       title: (
-        <Link href="/">
+        <Link style={{ ...style }} href="/">
           <HomeOutlined />
         </Link>
       ),
@@ -22,9 +24,11 @@ const SMBreadcrumb = ({
     ...items.map((item) => {
       return {
         title: item.path ? (
-          <Link href={item.path}>{item.label}</Link>
+          <Link style={{ ...style }} href={item.path}>
+            {item.label}
+          </Link>
         ) : (
-          <samp>{item.label}</samp>
+          <samp style={{ ...style }}>{item.label}</samp>
         ),
       };
     }),
