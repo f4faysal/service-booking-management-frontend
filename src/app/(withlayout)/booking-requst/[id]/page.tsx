@@ -1,8 +1,20 @@
+import Booking from "@/components/BookingRequst";
+import Container from "@/components/ui/container";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Service | Booking",
+};
+
 const BookingRequst = ({ params }: any) => {
   const id = params?.id;
+
   return (
     <div>
-      <h1>{id}</h1>
+      <Container>
+        <h1>Booking</h1>
+        <Booking id={id} />
+      </Container>
     </div>
   );
 };

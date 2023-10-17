@@ -1,5 +1,5 @@
-import { tagTypes } from "../tag-types.ts";
-import { baseApi } from "./baseApi";
+import { tagTypes } from "../tag-types.ts.js";
+import { baseApi } from "./baseApi.js";
 
 const BOOKING_URL = "/bookings";
 
