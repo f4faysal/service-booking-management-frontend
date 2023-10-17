@@ -21,14 +21,16 @@ const ServicesItem = () => {
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [categoryId, setCategoryId] = useState<string>("");
+  const [categoryId, setCategoryId] = useState<any>({});
+
+  console.log(categoryId);
 
   query["page"] = page;
   query["limit"] = sige;
   query["sortBy"] = sortBy;
   query["sortOrder"] = sortOrder;
   query["search"] = searchTerm;
-  query["categoryId"] = categoryId;
+  query["categoryId"] = categoryId?.value;
 
   const debouncedTerm = useDebounced({
     searchQuery: searchTerm,
@@ -38,24 +40,12 @@ const ServicesItem = () => {
   if (!!debouncedTerm) {
     query["search"] = debouncedTerm;
   }
-  console.log(categoryId);
+
   const { data, isLoading, refetch } = useServicessQuery({ ...query });
 
   const services = data?.services;
-  console.log(services);
-  const meta = data?.meta;
 
-  //   const deleteHandler = async (id: { id: string }) => {
-  //     message.loading("Service department...");
-  //     try {
-  //       const res = await deleteServices(id).unwrap();
-  //       if (res?.success) {
-  //         message.success("Service deleted successfully");
-  //       }
-  //     } catch (err: any) {
-  //       message.error(err.message);
-  //     }
-  //   };
+  const meta = data?.meta;
 
   const handleChange = (value: string) => {
     setCategoryId(value);
@@ -89,7 +79,7 @@ const ServicesItem = () => {
       <div
         style={{
           width: "100%",
-          height: "200px",
+          height: "300px",
           backgroundColor: "#16162e",
           margin: "20px 0",
           borderRadius: "15px",
@@ -107,7 +97,7 @@ const ServicesItem = () => {
             fontWeight: "bold",
           }}
         >
-          All Service list
+          {categoryId?.label || "All Services"}
         </h1>
         <div
           style={{
@@ -117,7 +107,7 @@ const ServicesItem = () => {
             gap: "10px",
             alignItems: "center",
             width: "70%",
-            height: "90px",
+            height: "110px",
             backgroundColor: "#fff",
             boxShadow: "10px 10px 10px 10px #0000001a",
             borderRadius: "10px",
@@ -125,46 +115,61 @@ const ServicesItem = () => {
             top: "70%",
           }}
         >
-          <p
-            style={{
-              marginLeft: "10px",
-            }}
-          >
-            Search
-          </p>
-          <Input
-            type="text"
-            size="large"
-            placeholder="Search ..."
-            value={searchTerm}
-            style={{
-              width: "300px",
-              height: "50px",
-              marginLeft: "20px",
-            }}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
-          />
-
-          <p
-            style={{
-              marginLeft: "20px",
-            }}
-          >
-            Category
-          </p>
-          <ServiceCategoreField
-            setCategoryId={setCategoryId}
-            categoryId={categoryId}
-          />
-          {(!!sortBy || !!sortOrder || searchTerm || categoryId) && (
-            <Button
-              onClick={resetFilter}
+          <div>
+            <p
               style={{
-                margin: "0 5px",
+                marginLeft: "25px",
+                marginBottom: "5px",
               }}
             >
+              Search
+            </p>
+            <Input
+              type="text"
+              size="large"
+              placeholder="Search ..."
+              value={searchTerm}
+              style={{
+                width: "300px",
+                height: "50px",
+                marginLeft: "20px",
+                marginBottom: "20px",
+              }}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+            />
+          </div>
+
+          <div>
+            <p
+              style={{
+                marginLeft: "10px",
+                marginBottom: "5px",
+              }}
+            >
+              Category
+            </p>
+            <ServiceCategoreField
+              style={{ marginBottom: "20px" }}
+              setCategoryId={setCategoryId}
+              categoryId={categoryId}
+            />
+          </div>
+
+          {(!!sortBy || !!sortOrder || searchTerm || categoryId) && (
+            <Button
+              type="primary"
+              onClick={resetFilter}
+              style={{
+                margin: "0 10px",
+                // padding: "20px",
+                width: "150px",
+                height: "48px",
+              }}
+            >
+              {" "}
+              Relod
               <ReloadOutlined />
             </Button>
           )}
