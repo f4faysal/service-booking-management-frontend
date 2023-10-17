@@ -4,6 +4,7 @@ import { useCategoriesQuery } from "@/redux/api/categorieApi";
 import { Avatar, Card, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 
+import Loading from "@/app/loading";
 import { useRouter } from "next/navigation";
 import Subscribe from "./ui/Subscribe";
 
@@ -17,6 +18,7 @@ const CategoriesOption = () => {
   const handelCatagory = (id: string) => {
     router.push(`/categories/${id}`);
   };
+  if (isLoading) <Loading />;
 
   return (
     <>

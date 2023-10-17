@@ -1,10 +1,9 @@
 "use client";
-import { Layout } from "antd";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import Contents from "@/components/ui/contents";
-import SideBar from "@/components/ui/sidebar";
+
 import { isLoggedIn } from "@/services/auth.service";
 import Loading from "../loading";
 
@@ -27,9 +26,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <Layout hasSider>
+    <div>
       <Contents>{children}</Contents>
-    </Layout>
+    </div>
   );
 };
 

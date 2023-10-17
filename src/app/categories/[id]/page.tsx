@@ -45,9 +45,6 @@ const ServicesItemCategorySarch = ({ params }: any) => {
 
   const services = data?.services;
 
-  console.log(services?.length > 0);
-  console.log(services);
-
   const serviceTitele = services?.find((service: any) => service);
 
   const meta = data?.meta;

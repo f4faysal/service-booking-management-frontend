@@ -1,18 +1,14 @@
 "use client";
 import { Layout } from "antd";
-import Header from "./header";
+import Footer from "./footer";
+import Navbar from "./navHader";
 
 const { Content } = Layout;
 
 const Contents = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Content
-      style={{
-        minHeight: "100vh",
-        color: "black",
-      }}
-    >
-      <Header />
+    <Content>
+      <Navbar />
 
       <div
         style={{
@@ -21,6 +17,8 @@ const Contents = ({ children }: { children: React.ReactNode }) => {
       >
         {children}
       </div>
+
+      <Footer />
     </Content>
   );
 };
