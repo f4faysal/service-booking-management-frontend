@@ -5,7 +5,12 @@ import { naveItems } from "@/constants/navbar-item";
 import { authKey } from "@/constants/storageKey";
 import { useProfileQuery } from "@/redux/api/user";
 import { getUserInfo, removeUserInfo } from "@/services/auth.service";
-import { UserOutlined } from "@ant-design/icons";
+import {
+  DashboardOutlined,
+  LoginOutlined,
+  LogoutOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { Avatar, Button, Dropdown, MenuProps, Space, message } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -29,22 +34,46 @@ const Navbar = () => {
     {
       key: "0",
       label: role ? (
-        <Link style={{ padding: "0 50px" }} onClick={logOut} href={""}>
-          <Button type="text">Logout</Button>
-        </Link>
-      ) : (
-        <Link style={{ padding: "0 50px" }} href={"/login"}>
-          <Button type="text">Login</Button>
-        </Link>
-      ),
+        <>
+          <Link style={{ padding: "0 50px" }} href={"/profile"}>
+            <Button type="text">
+              {" "}
+              <UserOutlined /> Profile
+            </Button>
+          </Link>
+        </>
+      ) : null,
     },
     {
       key: "1",
       label: role ? (
-        <Link style={{ padding: "0 50px" }} href={"/profile"}>
-          <Button type="text">Profile</Button>
-        </Link>
+        <>
+          <Link style={{ padding: "0 50px" }} href={"/booking"}>
+            <Button type="text">
+              {" "}
+              <DashboardOutlined /> Booking List
+            </Button>
+          </Link>
+        </>
       ) : null,
+    },
+    {
+      key: "2",
+      label: role ? (
+        <Link style={{ padding: "0 50px" }} onClick={logOut} href={""}>
+          <Button type="text">
+            {" "}
+            <LogoutOutlined /> Logout
+          </Button>
+        </Link>
+      ) : (
+        <Link style={{ padding: "0 50px" }} href={"/login"}>
+          <Button type="text">
+            {" "}
+            <LoginOutlined /> Login
+          </Button>
+        </Link>
+      ),
     },
   ];
 
