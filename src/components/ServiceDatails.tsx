@@ -8,7 +8,7 @@ import SMBreadcrumb from "./ui/Breadcrumb";
 const ServiceDatailsCard = ({ id }: { id: string }) => {
   const { data, isLoading } = useServicesQuery(id);
   const service = data?.data;
-  console.log(service);
+
   if (isLoading) {
     return <Loading />;
   }

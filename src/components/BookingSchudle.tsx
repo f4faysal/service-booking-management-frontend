@@ -14,8 +14,6 @@ const BookingSchudle = ({ service }: { service: any }) => {
   const [endTime, setEndTime] = useState<string>("");
   const [newDate, setNewDates] = useState<string>("");
 
-  console.log(startTime + " " + endTime + " " + newDate);
-
   const steps = [
     {
       title: "Booking Date & Time",

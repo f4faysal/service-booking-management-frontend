@@ -1,5 +1,7 @@
 "use client";
 
+import Loading from "@/app/loading";
+import { useReviewQuery } from "@/redux/api/reviewApi";
 import { HomeOutlined, IdcardOutlined } from "@ant-design/icons";
 import { Button, Col, Rate, Row, message } from "antd";
 import Image from "next/image";
@@ -9,11 +11,25 @@ import RelatedServices from "./ui/RelatedServices";
 
 const DeatilsBody = ({ service }: any) => {
   const router = useRouter();
+  const { data, isLoading } = useReviewQuery(service?.id);
+
+  const review = data?.data;
+
+  const sum = review?.reduce(
+    (total: any, reviews: any) => total + parseInt(reviews?.rating),
+    0
+  );
+
+  // Calculate the average rating
+  const average = parseFloat((sum / review?.length).toFixed(1) || "0");
 
   const handelBook = (value: any) => {
-    console.log(value);
     router.push(`/booking-requst/${value?.id}`);
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -120,14 +136,14 @@ const DeatilsBody = ({ service }: any) => {
                           fontSize: "16px",
                         }}
                       >
-                        2.5
+                        {average}
                       </p>
                       <Rate
                         style={{
                           fontSize: "14px",
                         }}
                         allowHalf
-                        defaultValue={2.5}
+                        defaultValue={average}
                       />
                     </div>
                     <p
@@ -136,7 +152,7 @@ const DeatilsBody = ({ service }: any) => {
                         color: "gray",
                         marginTop: "5px",
                       }}
-                    >{`(${1} Reviews)`}</p>
+                    >{`(${review?.length} Reviews)`}</p>
                   </div>
                 </div>
               </div>
@@ -234,6 +250,7 @@ const DeatilsBody = ({ service }: any) => {
             <CustomerReview service={service} />
           </div>
         </Col>
+        {/* Price */}
         <Col span={6}>
           <div
             style={{

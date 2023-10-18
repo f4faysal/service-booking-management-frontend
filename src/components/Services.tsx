@@ -47,7 +47,6 @@ const ServicesItem = () => {
   const meta = data?.meta;
 
   const handelBook = (value: any) => {
-    console.log(value);
     router.push(`/booking-requst/${value?.id}`);
   };
 

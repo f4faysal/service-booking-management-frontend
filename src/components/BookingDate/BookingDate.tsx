@@ -19,7 +19,7 @@ const BookingDate = ({
 
   const onPanelChange = (value: Dayjs) => {
     const date = String(value.format("YYYY-MM-DD"));
-    console.log(date);
+
     setNewDates(date);
   };
   const { token } = theme.useToken();

@@ -1,13 +1,21 @@
 "use client";
-import { Button, Col, Progress, Row, Statistic, message } from "antd";
-import { useRouter } from "next/navigation";
+import {
+  Avatar,
+  Button,
+  Col,
+  Progress,
+  Rate,
+  Row,
+  Statistic,
+  message,
+} from "antd";
 import { SubmitHandler } from "react-hook-form";
 
 import Form from "@/components/forms/form";
 import { ratingOptions } from "@/constants/golobal";
-
-import { useCreateReviewMutation } from "@/redux/api/reviewApi";
+import { useCreateReviewMutation, useReviewQuery } from "@/redux/api/reviewApi";
 import { LikeOutlined } from "@ant-design/icons";
+import dayjs from "dayjs";
 import FormTextArea from "../forms/FormTextArea.tsx";
 import FormSelectField from "../forms/formSelectField";
 
@@ -19,7 +27,10 @@ type FormValues = {
 const CustomerReview = ({ service }: any) => {
   const [createReview] = useCreateReviewMutation();
 
-  const router = useRouter();
+  const { data, refetch } = useReviewQuery(service?.id);
+
+  const review = data?.data;
+
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
       const res = await createReview({
@@ -29,6 +40,7 @@ const CustomerReview = ({ service }: any) => {
 
       if (res?.success) {
         message.success("Review posted successfully.");
+        refetch();
       } else {
         message.error("User has not booked this service.");
       }
@@ -110,6 +122,78 @@ const CustomerReview = ({ service }: any) => {
           Post Review
         </Button>
       </Form>
+
+      {review?.map((item: any, i: number) => {
+        return (
+          <div key={i}>
+            <div
+              style={{
+                marginTop: "1rem",
+                width: "100%",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  gap: "2rem",
+                }}
+              >
+                <div>
+                  <Avatar size={64} />
+                </div>
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    paddingRight: "2rem",
+                  }}
+                >
+                  <div>
+                    <h3>
+                      <b>John Doe</b>
+                    </h3>
+                    <p
+                      style={{
+                        marginTop: "10px",
+                      }}
+                    >
+                      <b>
+                        {dayjs(item?.createdAt).format("MMM D, YYYY hh:mm A")}
+                      </b>
+                    </p>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      gap: "0.5rem",
+                      alignItems: "center",
+                    }}
+                  >
+                    <h2>{item?.rating}</h2>
+                    <Rate value={item?.rating} />
+                  </div>
+                </div>
+              </div>
+
+              <p
+                style={{
+                  marginLeft: "5.7rem",
+                  marginTop: "1rem",
+                }}
+              >
+                {item?.review}
+              </p>
+              <hr
+                style={{
+                  marginTop: "1rem",
+                }}
+              />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
