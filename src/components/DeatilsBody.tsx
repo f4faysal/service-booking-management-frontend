@@ -1,12 +1,20 @@
 "use client";
 
-import { HomeOutlined } from "@ant-design/icons";
-import { Col, Rate, Row } from "antd";
+import { HomeOutlined, IdcardOutlined } from "@ant-design/icons";
+import { Button, Col, Rate, Row, message } from "antd";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import CustomerReview from "./ui/CustomerReview";
 import RelatedServices from "./ui/RelatedServices";
 
 const DeatilsBody = ({ service }: any) => {
+  const router = useRouter();
+
+  const handelBook = (value: any) => {
+    console.log(value);
+    router.push(`/booking-requst/${value?.id}`);
+  };
+
   return (
     <div>
       <Row>
@@ -227,17 +235,93 @@ const DeatilsBody = ({ service }: any) => {
           </div>
         </Col>
         <Col span={6}>
-          <div>
-            <h2>Price {service?.price} TK</h2>
-            <p
+          <div
+            style={{
+              height: "300px",
+              width: "100%",
+              padding: "1rem",
+              backgroundColor: "#f5f5f6",
+              borderRadius: "10px",
+            }}
+          >
+            <div style={{}}>
+              <h2
+                style={{
+                  fontSize: "2.5rem",
+                  color: "black",
+
+                  marginTop: "1rem",
+                }}
+              >
+                {service?.price} TK
+              </h2>
+              <p
+                style={{
+                  fontSize: "20px",
+                  color: "yellowGreen",
+                  marginTop: "5px",
+                }}
+              >
+                inclusive of all taxes {service?.tax}%
+              </p>
+              <hr
+                style={{
+                  margin: "1rem 0",
+                }}
+              />
+            </div>
+            <div
               style={{
-                fontSize: "16px",
-                color: "yellowGreen",
-                marginTop: "5px",
+                display: "flex",
+                justifyContent: "space-between",
+                padding: "0 2rem ",
               }}
             >
-              inclusive of all taxes {service?.tax}%
-            </p>
+              <p
+                style={{
+                  fontSize: "20px",
+                }}
+              >
+                Total
+              </p>
+              <p
+                style={{
+                  fontSize: "20px",
+                }}
+              >
+                {parseInt(service?.price) +
+                  service?.price * (service?.tax / 100)}{" "}
+                tk
+              </p>
+            </div>
+
+            <Button
+              style={{
+                marginTop: "10px",
+                width: "100%",
+                height: "40px",
+                backgroundColor: "yellowGreen",
+                color: "#fff",
+              }}
+              onClick={() => handelBook(service)}
+            >
+              Book Now
+              <IdcardOutlined
+                style={{
+                  marginLeft: "5px",
+                }}
+              />
+            </Button>
+            <Button
+              style={{
+                marginTop: "10px",
+                width: "100%",
+                height: "40px",
+              }}
+              onClick={() => message.info("Your inquiry has been sent.")}
+            >
+              Send Inquiry
+            </Button>
           </div>
         </Col>
       </Row>
