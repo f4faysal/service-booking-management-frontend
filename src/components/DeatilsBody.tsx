@@ -1,8 +1,10 @@
+"use client";
+
 import { HomeOutlined } from "@ant-design/icons";
 import { Col, Rate, Row } from "antd";
 import Image from "next/image";
-import CustomerReview from "./CustomerReview";
-import RelatedServices from "./RelatedServices";
+import CustomerReview from "./ui/CustomerReview";
+import RelatedServices from "./ui/RelatedServices";
 
 const DeatilsBody = ({ service }: any) => {
   return (
@@ -221,7 +223,7 @@ const DeatilsBody = ({ service }: any) => {
                 marginBottom: "1rem",
               }}
             />
-            <CustomerReview />
+            <CustomerReview service={service} />
           </div>
         </Col>
         <Col span={6}>

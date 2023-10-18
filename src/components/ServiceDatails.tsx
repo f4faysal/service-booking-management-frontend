@@ -2,8 +2,8 @@
 
 import Loading from "@/app/loading";
 import { useServicesQuery } from "@/redux/api/serviceApi";
+import DeatilsBody from "./DeatilsBody";
 import SMBreadcrumb from "./ui/Breadcrumb";
-import DeatilsBody from "./ui/DeatilsBody";
 
 const ServiceDatailsCard = ({ id }: { id: string }) => {
   const { data, isLoading } = useServicesQuery(id);

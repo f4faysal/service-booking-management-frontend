@@ -7,6 +7,7 @@ type TextAreaProps = {
   rows?: number;
   value?: string;
   placeholder?: string;
+  style?: any;
 };
 
 const FormTextArea = ({
@@ -15,6 +16,7 @@ const FormTextArea = ({
   rows,
   value,
   placeholder,
+  style,
 }: TextAreaProps) => {
   const { control } = useFormContext();
   return (
@@ -26,6 +28,7 @@ const FormTextArea = ({
         render={({ field }) => (
           <Input.TextArea
             rows={rows}
+            style={style}
             placeholder={placeholder}
             {...field}
             defaultValue={value}

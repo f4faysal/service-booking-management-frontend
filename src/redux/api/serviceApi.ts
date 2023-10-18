@@ -39,6 +39,15 @@ const servicesApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: [tagTypes.services],
     }),
+    // services create
+    createReview: build.mutation({
+      query: (body) => ({
+        url: `/review/create`,
+        method: "POST",
+        data: body,
+      }),
+      invalidatesTags: [tagTypes.services],
+    }),
 
     // services update
     updateServices: build.mutation({
@@ -81,4 +90,5 @@ export const {
   useCreateServicesMutation,
   useUpdateServicesMutation,
   useDeleteServicesMutation,
+  useCreateReviewMutation,
 } = servicesApi;

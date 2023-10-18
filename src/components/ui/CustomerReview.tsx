@@ -1,25 +1,37 @@
-import { ratingOptions } from "@/constants/golobal";
-import { LikeOutlined } from "@ant-design/icons";
-import { Col, Progress, Row, Statistic } from "antd";
+"use client";
+import { Button, Col, Progress, Row, Statistic, message } from "antd";
+import { useRouter } from "next/navigation";
 import { SubmitHandler } from "react-hook-form";
+
+import Form from "@/components/forms/form";
+import { ratingOptions } from "@/constants/golobal";
+
+import { useCreateReviewMutation } from "@/redux/api/reviewApi";
+import { LikeOutlined } from "@ant-design/icons";
 import FormTextArea from "../forms/FormTextArea.tsx";
-import Form from "../forms/form";
 import FormSelectField from "../forms/formSelectField";
 
 type FormValues = {
-  review: string;
-  rating: string;
+  id: string;
+  password: string;
 };
 
-const CustomerReview = () => {
+const CustomerReview = ({ service }: any) => {
+  const [createReview] = useCreateReviewMutation();
+
+  const router = useRouter();
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-      //   const res = await userLogin({ ...data }).unwrap();
-      //   // // const { accessToken } = res.data;
-      //   if (res?.accessToken) {
-      //     router.push("/");
-      //     message.success("User Login Success");
-      //   }
+      const res = await createReview({
+        serviceId: service?.id,
+        ...data,
+      }).unwrap();
+
+      if (res?.success) {
+        message.success("Review posted successfully.");
+      } else {
+        message.error("User has not booked this service.");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -80,9 +92,23 @@ const CustomerReview = () => {
           }}
         >
           <Col span={24}>
-            <FormTextArea name="rating" placeholder="Seclit rating" />
+            <FormTextArea
+              style={{ height: 150, marginBottom: 24 }}
+              name="review"
+              placeholder="Seclit rating"
+            />
           </Col>
         </Row>
+        <Button
+          style={{
+            marginTop: "1rem",
+            width: "20%",
+          }}
+          type="primary"
+          htmlType="submit"
+        >
+          Post Review
+        </Button>
       </Form>
     </div>
   );
