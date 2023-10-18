@@ -40,6 +40,7 @@ const BookingRequst = ({ params }: any) => {
             items={[
               { label: "Home", path: "/" },
               { label: "Services", path: "/services" },
+              { label: "Details", path: `/services/details/${id}` },
               { label: "Booking Requst", path: `/booking-requst/${id}` },
             ]}
             style={{

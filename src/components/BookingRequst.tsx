@@ -12,6 +12,8 @@ const Booking = ({ id }: { id: string }) => {
 
   return (
     <div>
+      {/* Booking Information */}
+
       <div
         style={{
           display: "flex",
@@ -138,7 +140,7 @@ const Booking = ({ id }: { id: string }) => {
                 </p>
               </div>
             </div>
-            <p>{service?.description}</p>
+            <p>{service?.description.slice(0, 300) + "..."}</p>
           </div>
         </div>
       </div>

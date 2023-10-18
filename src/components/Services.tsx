@@ -9,6 +9,7 @@ import Meta from "antd/es/card/Meta";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import ServiceCategoreField from "./forms/service-catagory";
+import SMBreadcrumb from "./ui/Breadcrumb";
 import Subscribe from "./ui/Subscribe";
 
 const ServicesItem = () => {
@@ -70,11 +71,11 @@ const ServicesItem = () => {
     setCategoryId("");
   };
 
-  if (isLoading) <Loading />;
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
-      <h1>All Service list</h1>
-
       <div
         style={{
           width: "100%",
@@ -98,6 +99,18 @@ const ServicesItem = () => {
         >
           {categoryId?.label || "All Services"}
         </h1>
+        <div>
+          <SMBreadcrumb
+            items={[
+              { label: "Home", path: "/" },
+              { label: "Services", path: "/services" },
+            ]}
+            style={{
+              color: "#fff",
+              fontSize: "17px",
+            }}
+          />
+        </div>
         <div
           style={{
             display: "flex",
@@ -186,7 +199,8 @@ const ServicesItem = () => {
             return (
               <Col span={6} order={i} key={i}>
                 <Card
-                  style={{ width: 300 }}
+                  hoverable
+                  style={{ width: 300, marginTop: "17px" }}
                   cover={
                     <Avatar
                       shape="square"
@@ -194,77 +208,90 @@ const ServicesItem = () => {
                       src={service?.imageLink}
                     />
                   }
-                  actions={[
-                    <p onClick={() => handelBook(service)} key="edit">
-                      Book Now
-                      <IdcardOutlined
-                        style={{
-                          marginLeft: "5px",
-                        }}
-                      />
-                    </p>,
-                  ]}
                 >
                   <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
+                    onClick={() =>
+                      router.push(`/services/details/${service?.id}`)
+                    }
                   >
-                    <p
-                      style={{
-                        fontSize: "28px",
-                        fontWeight: "bold",
-                        color: "black",
-                      }}
-                    >
-                      {service?.price} ৳
-                    </p>
-
                     <div
                       style={{
                         display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
                         alignItems: "center",
-                        gap: "5px",
                       }}
                     >
                       <p
                         style={{
-                          fontSize: "16px",
-                        }}
-                      >
-                        2.5
-                      </p>
-                      <Rate
-                        style={{
-                          fontSize: "14px",
-                        }}
-                        allowHalf
-                        defaultValue={2.5}
-                      />
-                    </div>
-                  </div>
-                  <p>{service?.location}</p>
-
-                  <Meta
-                    style={{
-                      marginTop: "10px",
-                    }}
-                    title={
-                      <p
-                        style={{
-                          fontSize: "20px",
+                          fontSize: "28px",
                           fontWeight: "bold",
                           color: "black",
                         }}
                       >
-                        {service?.title}
+                        {service?.price} ৳
                       </p>
-                    }
-                    description={service?.description.slice(0, 70) + "..."}
-                  />
+
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "5px",
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontSize: "16px",
+                          }}
+                        >
+                          2.5
+                        </p>
+                        <Rate
+                          style={{
+                            fontSize: "14px",
+                          }}
+                          allowHalf
+                          defaultValue={2.5}
+                        />
+                      </div>
+                    </div>
+                    <p>{service?.location}</p>
+
+                    <Meta
+                      style={{
+                        marginTop: "10px",
+                      }}
+                      title={
+                        <p
+                          style={{
+                            fontSize: "20px",
+                            fontWeight: "bold",
+                            color: "black",
+                          }}
+                        >
+                          {service?.title}
+                        </p>
+                      }
+                      description={service?.description.slice(0, 70) + "..."}
+                    />
+                  </div>
+                  <Button
+                    style={{
+                      marginTop: "10px",
+                      width: "100%",
+                      height: "40px",
+                      backgroundColor: "yellowGreen",
+                      color: "#fff",
+                    }}
+                    onClick={() => handelBook(service)}
+                  >
+                    Book Now
+                    <IdcardOutlined
+                      style={{
+                        marginLeft: "5px",
+                      }}
+                    />
+                  </Button>
                 </Card>
               </Col>
             );

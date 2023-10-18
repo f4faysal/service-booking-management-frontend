@@ -1,7 +1,7 @@
 "use client";
 
 import { useCategoriesQuery } from "@/redux/api/categorieApi";
-import { Avatar, Card, Col, Row } from "antd";
+import { Avatar, Card, Col, Empty, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 
 import Loading from "@/app/loading";
@@ -27,37 +27,47 @@ const CategoriesOption = () => {
           padding: "20px 0",
         }}
       >
-        {categories?.map((category: any, i: any) => {
-          return (
-            <Col span={4} order={i} key={i}>
-              <Card
-                onClick={() => handelCatagory(category?.id)}
-                cover={
-                  <Avatar
+        {categories?.length > 0 ? (
+          categories?.map((category: any, i: any) => {
+            return (
+              <Col span={4} order={i} key={i}>
+                <Card
+                  onClick={() => handelCatagory(category?.id)}
+                  cover={
+                    <Avatar
+                      style={{
+                        padding: "10px",
+                      }}
+                      size={200}
+                      src={category?.imageLink}
+                    />
+                  }
+                  hoverable
+                  style={{ width: 200 }}
+                  loading={isLoading}
+                >
+                  <Meta
                     style={{
-                      padding: "10px",
+                      textAlign: "center",
+                      fontSize: 20,
+                      fontWeight: "bold",
+                      color: "black",
                     }}
-                    size={200}
-                    src={category?.imageLink}
+                    title={category?.title}
                   />
-                }
-                hoverable
-                style={{ width: 200 }}
-                loading={isLoading}
-              >
-                <Meta
-                  style={{
-                    textAlign: "center",
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    color: "black",
-                  }}
-                  title={category?.title}
-                />
-              </Card>
-            </Col>
-          );
-        })}
+                </Card>
+              </Col>
+            );
+          })
+        ) : (
+          <Empty
+            style={{
+              margin: "auto",
+              marginTop: "100px",
+              marginBottom: "100px",
+            }}
+          />
+        )}
       </Row>
 
       <Subscribe />

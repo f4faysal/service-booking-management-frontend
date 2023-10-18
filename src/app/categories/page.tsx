@@ -26,6 +26,7 @@ const Categories = () => {
             marginTop: "20px",
           }}
         >
+          {/* bredcone and baner */}
           <div
             style={{
               width: "100%",
