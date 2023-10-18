@@ -4,7 +4,18 @@ import Loading from "@/app/loading";
 import { useServicessQuery } from "@/redux/api/serviceApi";
 import { useDebounced } from "@/redux/hooks";
 import { IdcardOutlined, ReloadOutlined } from "@ant-design/icons";
-import { Avatar, Button, Card, Col, Empty, Input, Rate, Row } from "antd";
+import {
+  Avatar,
+  Button,
+  Card,
+  Col,
+  Empty,
+  Input,
+  Pagination,
+  PaginationProps,
+  Rate,
+  Row,
+} from "antd";
 import Meta from "antd/es/card/Meta";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,12 +28,13 @@ const ServicesItem = () => {
 
   const query: Record<string, any> = {};
 
-  const [sige, setSige] = useState<number>(10);
+  const [sige, setSige] = useState<number>(12);
   const [page, setPage] = useState<number>(1);
   const [sortBy, setSortBy] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("");
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [categoryId, setCategoryId] = useState<any>({});
+  const [current, setCurrent] = useState<number>();
 
   query["page"] = page;
   query["limit"] = sige;
@@ -54,6 +66,12 @@ const ServicesItem = () => {
     setPage(page);
     setSige(pageSize);
   };
+
+  const onChange: PaginationProps["onChange"] = (page) => {
+    setPage(page);
+    setCurrent(page);
+  };
+
   const onTableChange = (pagination: any, filters: any, sorter: any) => {
     // console.log(pagination, "pagination");
     // console.log(filters, "filters");
@@ -304,6 +322,25 @@ const ServicesItem = () => {
             }}
           />
         )}
+      </Row>
+
+      <Row>
+        <Col
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "20px 0",
+          }}
+          span={24}
+        >
+          <Pagination
+            showSizeChanger
+            current={current}
+            onChange={onChange}
+            total={500}
+          />
+        </Col>
       </Row>
 
       <Subscribe />
