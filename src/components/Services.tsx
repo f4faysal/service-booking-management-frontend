@@ -3,7 +3,12 @@
 import Loading from "@/app/loading";
 import { useServicessQuery } from "@/redux/api/serviceApi";
 import { useDebounced } from "@/redux/hooks";
-import { IdcardOutlined, ReloadOutlined } from "@ant-design/icons";
+import {
+  FallOutlined,
+  IdcardOutlined,
+  ReloadOutlined,
+  RiseOutlined,
+} from "@ant-design/icons";
 import {
   Avatar,
   Button,
@@ -72,13 +77,10 @@ const ServicesItem = () => {
     setCurrent(page);
   };
 
-  const onTableChange = (pagination: any, filters: any, sorter: any) => {
-    // console.log(pagination, "pagination");
-    // console.log(filters, "filters");
-    // console.log(field, "field" + " " + order, "order");
-
-    const { field, order } = sorter;
-    setSortBy(field);
+  const onTableChange = (order: string) => {
+    setSortBy("price");
+    // setSortOrder("desc");
+    console.log(sortOrder);
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
   const resetFilter = () => {
@@ -186,19 +188,36 @@ const ServicesItem = () => {
             />
           </div>
 
+          {/* <div> */}
+          <Button
+            style={{
+              height: "48px",
+            }}
+            onClick={() => onTableChange("ascend")}
+          >
+            <RiseOutlined />
+          </Button>
+          {/* </div> */}
+          <Button
+            style={{
+              height: "48px",
+            }}
+            onClick={() => onTableChange("desc")}
+          >
+            <FallOutlined />
+          </Button>
+
           {(!!sortBy || !!sortOrder || searchTerm || categoryId) && (
             <Button
-              type="primary"
+              // type="primary"
               onClick={resetFilter}
               style={{
-                margin: "0 10px",
+                // margin: "0 10px",
                 // padding: "20px",
-                width: "150px",
+
                 height: "48px",
               }}
             >
-              {" "}
-              Relod
               <ReloadOutlined />
             </Button>
           )}
