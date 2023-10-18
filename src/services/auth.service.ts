@@ -10,6 +10,7 @@ export const getUserInfo = () => {
   const authtoken = getFormLocalStorage(authKey);
   if (authtoken) {
     const decodedData = decodedToken(authtoken);
+
     return decodedData;
   } else {
     return "";

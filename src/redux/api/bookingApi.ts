@@ -17,7 +17,7 @@ const bookingApi = baseApi.injectEndpoints({
     // isngle services
     booking: build.query({
       query: (id) => ({
-        url: `${BOOKING_URL}/${id}`,
+        url: `${BOOKING_URL}/user`,
         method: "GET",
       }),
       providesTags: [tagTypes.booking],
