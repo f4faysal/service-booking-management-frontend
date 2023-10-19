@@ -1,6 +1,7 @@
 import AppointmentBooking from "@/components/home/AppointmentBooking";
 import BlogPost from "@/components/home/BlogPost";
 import FeedBack from "@/components/home/FeedBack";
+import Overview from "@/components/home/Overview";
 import SeeAllCategory from "@/components/home/SeeAllCategory";
 import SeeServices from "@/components/home/SeeServices";
 import SeeServicesUpcoming from "@/components/home/SeeServicesUpcoming";
@@ -25,6 +26,7 @@ const HomePage = () => {
         <AppointmentBooking />
         <SeeServicesUpcoming />
         <BlogPost />
+        <Overview />
         <FeedBack />
       </Container>
       <Footer />
