@@ -1,3 +1,4 @@
+import FaqsSection from "@/components/FaqsSection";
 import SMBreadcrumb from "@/components/ui/Breadcrumb";
 import Container from "@/components/ui/container";
 import Footer from "@/components/ui/footer";
@@ -14,13 +15,46 @@ const Faqs = () => {
       <Navbar />
 
       <Container>
-        <SMBreadcrumb
-          items={[
-            { label: "Home", path: "/" },
-            { label: "Faqs", path: "/faq" },
-          ]}
-        />
-        <h1>Faq</h1>
+        {/* bredcone and baner */}
+        <div
+          style={{
+            width: "100%",
+            height: "200px",
+            backgroundColor: "#16162e",
+            margin: "20px 0",
+            borderRadius: "15px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <h1
+            style={{
+              color: "#fff",
+              fontSize: "50px",
+              fontWeight: "bold",
+            }}
+          >
+            Frequently Asked Questions
+          </h1>
+          <br />
+          <div>
+            <SMBreadcrumb
+              items={[
+                { label: "Home", path: "/" },
+                { label: "Faqs", path: "/faq" },
+              ]}
+              style={{
+                color: "#fff",
+                fontSize: "17px",
+              }}
+            />
+          </div>
+        </div>
+
+        <FaqsSection />
       </Container>
 
       <Footer />

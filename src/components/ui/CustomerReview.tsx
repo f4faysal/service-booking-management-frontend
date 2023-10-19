@@ -30,7 +30,7 @@ const CustomerReview = ({ service }: any) => {
   const { data, refetch } = useReviewQuery(service?.id);
 
   const review = data?.data;
-
+  console.log(review);
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
       const res = await createReview({
@@ -139,7 +139,7 @@ const CustomerReview = ({ service }: any) => {
                 }}
               >
                 <div>
-                  <Avatar size={64} />
+                  <Avatar src={item?.user?.profileImg} size={64} />
                 </div>
                 <div
                   style={{
@@ -152,7 +152,7 @@ const CustomerReview = ({ service }: any) => {
                 >
                   <div>
                     <h3>
-                      <b>John Doe</b>
+                      <b>{item?.user?.name}</b>
                     </h3>
                     <p
                       style={{

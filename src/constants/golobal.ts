@@ -1,3 +1,18 @@
+import { useFaqsQuery } from "@/redux/api/faqsApi";
+
+// const { data, error, isLoading } = useFaqsQuery({});
+// const faq = data?.data;
+// const getItems: (panelStyle: CSSProperties) => CollapseProps["items"] = (
+//   panelStyle
+// ) => [
+//   {
+//     key: "1",
+//     label: "This is panel header 1",
+//     children: "{ text }",
+//     style: panelStyle,
+//   },
+// ];
+
 export const role = ["admin", "user"];
 export const roleOptions = role.map((role: string) => {
   return {

@@ -15,12 +15,6 @@ const Categories = () => {
       <Navbar />
 
       <Container>
-        <SMBreadcrumb
-          items={[
-            { label: "Home", path: "/" },
-            { label: "Categories", path: "/categories" },
-          ]}
-        />
         <div
           style={{
             marginTop: "20px",
