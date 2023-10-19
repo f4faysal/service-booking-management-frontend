@@ -24,8 +24,7 @@ const BookingList = () => {
   const bookings = data?.data;
 
   const deleteHandler = async (id: { id: string }) => {
-    console.log(id);
-    message.loading("department...");
+    message.loading("Booking...");
     try {
       const res = await deletebooking(id).unwrap();
       if (res?.success) {

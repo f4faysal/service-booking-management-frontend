@@ -15,7 +15,6 @@ const FeedbackForm = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
-      console.log(data);
       const res = await createFeedback(data).unwrap();
 
       if (res?.success) {

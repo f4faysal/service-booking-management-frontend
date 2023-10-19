@@ -38,7 +38,7 @@ axiosInstance.interceptors.response.use(
       message: error?.response?.data?.message || "Something went wrong",
       errorMessages: error?.response?.data?.errorMessages,
     };
-
+    console.log(modifiedErrorResponse, "modifiedErrorResponse");
     return modifiedErrorResponse;
   }
 );

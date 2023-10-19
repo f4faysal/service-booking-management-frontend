@@ -16,11 +16,8 @@ const BookingImformation = ({
   endTime: string;
   startTime: string;
 }) => {
-  console.log(service);
-
   const { data, isLoading } = useProfileQuery({});
 
-  console.log(data?.data);
   const { title, price, tax } = service;
   const { name, email, contactNumber, address } = data?.data;
 

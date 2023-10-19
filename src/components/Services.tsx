@@ -80,7 +80,7 @@ const ServicesItem = () => {
   const onTableChange = (order: string) => {
     setSortBy("price");
     // setSortOrder("desc");
-    console.log(sortOrder);
+
     setSortOrder(order === "ascend" ? "asc" : "desc");
   };
   const resetFilter = () => {

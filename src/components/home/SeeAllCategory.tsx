@@ -19,7 +19,7 @@ const SeeAllCategory = () => {
   const router = useRouter();
   const { data, isLoading } = useCategoriesQuery({});
   const categories = data?.data;
-  console.log(categories);
+  
 
   if (isLoading) <Loading />;
 

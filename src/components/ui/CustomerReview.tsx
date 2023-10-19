@@ -30,7 +30,7 @@ const CustomerReview = ({ service }: any) => {
   const { data, refetch } = useReviewQuery(service?.id);
 
   const review = data?.data;
-  console.log(review);
+ 
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
       const res = await createReview({
