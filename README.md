@@ -83,10 +83,3 @@ The project supports a variety of services, including but not limited to:
 - Interior Design and Decor Service
 - Wedding Planning and Coordination Service
 
-## Project Structure
-
-[Describe the structure of your project, including the key directories and files in the repository.]
-
-## Contributing
-
-We welcome contributions to make this project even better. If you're interested in contributing, please follow our [Contributing Guidelines](CONTRIBUTING.md).
