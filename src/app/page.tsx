@@ -1,3 +1,7 @@
+import AppointmentBooking from "@/components/home/AppointmentBooking";
+import BlogPost from "@/components/home/BlogPost";
+import SeeAllCategory from "@/components/home/SeeAllCategory";
+import SeeServices from "@/components/home/SeeServices";
 import Container from "@/components/ui/container";
 import Footer from "@/components/ui/footer";
 import HeroSection from "@/components/ui/hero-section";
@@ -14,7 +18,10 @@ const HomePage = () => {
       <Navbar />
       <HeroSection />
       <Container>
-        <h1>Next.js + TypeScript</h1>
+        <SeeAllCategory />
+        <SeeServices />
+        <AppointmentBooking />
+        <BlogPost />
       </Container>
       <Footer />
     </>

@@ -29,20 +29,19 @@ const servicesApi = baseApi.injectEndpoints({
       }),
       providesTags: [tagTypes.services],
     }),
+    // isngle services
+    servicesCategotyId: build.query({
+      query: (id) => ({
+        url: `${SERVICES_URL}/${id}/category`,
+        method: "GET",
+      }),
+      providesTags: [tagTypes.services],
+    }),
 
     // services create
     createServices: build.mutation({
       query: (body) => ({
         url: `${SERVICES_URL}/create`,
-        method: "POST",
-        data: body,
-      }),
-      invalidatesTags: [tagTypes.services],
-    }),
-    // services create
-    createReview: build.mutation({
-      query: (body) => ({
-        url: `/review/create`,
         method: "POST",
         data: body,
       }),
@@ -87,8 +86,8 @@ const servicesApi = baseApi.injectEndpoints({
 export const {
   useServicessQuery,
   useServicesQuery,
+  useServicesCategotyIdQuery,
   useCreateServicesMutation,
   useUpdateServicesMutation,
   useDeleteServicesMutation,
-  useCreateReviewMutation,
 } = servicesApi;

@@ -18,7 +18,9 @@ const CategoriesOption = () => {
   const handelCatagory = (id: string) => {
     router.push(`/categories/${id}`);
   };
-  if (isLoading) <Loading />;
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>

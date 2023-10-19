@@ -4,14 +4,20 @@ import {
   LinkedinOutlined,
   TwitterOutlined,
 } from "@ant-design/icons";
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
   return (
     <footer className="custom-footer">
       <div className="custom-container custom-flex">
-        <Link href="#" className="custom-logo">
-          <span className="custom-title">Motel</span>
+        <Link className="title-font" href="/">
+          <Image
+            alt="logo"
+            src="https://res.cloudinary.com/dhvuyehnq/image/upload/v1697697658/okxkydvlk1hgqxovykgq.png"
+            width={200}
+            height={80}
+          />
         </Link>
         <p className="custom-text">
           © 2022 Motel —

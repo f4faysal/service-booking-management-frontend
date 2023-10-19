@@ -12,6 +12,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, MenuProps, Space, message } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Container from "./container";
@@ -83,15 +84,12 @@ const Navbar = () => {
         <div className="header">
           <div>
             <Link className="title-font" href="/">
-              <span
-                style={{
-                  fontSize: "28px",
-                  fontWeight: "bold",
-                  textDecoration: "none",
-                }}
-              >
-                Motel
-              </span>
+              <Image
+                alt="logo"
+                src="https://res.cloudinary.com/dhvuyehnq/image/upload/v1697697658/okxkydvlk1hgqxovykgq.png"
+                width={140}
+                height={55}
+              />
             </Link>
           </div>
           <nav className="nav-links">
