@@ -49,6 +49,7 @@ const AppointmentBooking = () => {
               style={{
                 marginTop: "30px",
               }}
+              gutter={[16, 16]}
             >
               <Col
                 span={12}

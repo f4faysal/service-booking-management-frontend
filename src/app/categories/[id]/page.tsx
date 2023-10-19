@@ -220,6 +220,7 @@ const ServicesItemCategorySarch = ({ params }: any) => {
             marginTop: "70px",
             padding: "20px 0",
           }}
+          gutter={[20, 20]}
         >
           {services?.length > 0 ? (
             services?.map((service: any, i: any) => {

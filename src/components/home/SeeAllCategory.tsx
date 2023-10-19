@@ -77,7 +77,7 @@ const SeeAllCategory = () => {
       </div>
       {/* Category option */}
       <div>
-        <Row>
+        <Row gutter={[20, 20]}>
           {categories?.slice(0, 6)?.map((category: any, i: any) => {
             return (
               <Col span={4} order={i} key={i}>

@@ -1,17 +1,75 @@
-import { useFaqsQuery } from "@/redux/api/faqsApi";
-
-// const { data, error, isLoading } = useFaqsQuery({});
-// const faq = data?.data;
-// const getItems: (panelStyle: CSSProperties) => CollapseProps["items"] = (
-//   panelStyle
-// ) => [
-//   {
-//     key: "1",
-//     label: "This is panel header 1",
-//     children: "{ text }",
-//     style: panelStyle,
-//   },
-// ];
+export const services_upcoming = [
+  {
+    name: "Home Energy Efficiency Audit and Optimization",
+    rating: 4.8,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715849/mnzadsxyo8dxadhgr1w9.jpg",
+    price_range: "8000 - 15000",
+  },
+  {
+    name: "Virtual Reality Fitness Training Sessions",
+    rating: 4.7,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715833/mroztsobgzv89pnanu6z.jpg",
+    price_range: "3000 - 8000",
+  },
+  {
+    name: "Eco-Friendly Lawn Care and Maintenance",
+    rating: 4.6,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715800/nhdgvqxlg5ganuwnjzal.webp",
+    price_range: "2500 - 7000",
+  },
+  {
+    name: "Personalized Genetic Health Consultations",
+    rating: 4.9,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715764/gqkxx6tcb4bwiyq51hxw.jpg",
+    price_range: "10000 - 20000",
+  },
+  {
+    name: "Drone-Based Aerial Photography and Mapping",
+    rating: 4.4,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715741/ve9kr8yuxqnf0pe52u2m.jpg",
+    price_range: "6000 - 15000",
+  },
+  {
+    name: "Virtual Interior Design and Home Renovation ",
+    rating: 4.7,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715700/t5nnuenswc4xqoadzopr.png",
+    price_range: "5000 - 12000",
+  },
+  {
+    name: "Electric Scooter Charging and Maintenance Services",
+    rating: 4.3,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715632/pb3mdo9ffbzdwrlacyre.jpg",
+    price_range: "2500 - 6000",
+  },
+  {
+    name: "Urban Vertical Farming Consultations",
+    rating: 4.8,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697716441/wautsv8gzcb4bc9od3it.jpg",
+    price_range: "7000 - 15000",
+  },
+  {
+    name: "Sustainable Fashion Wardrobe Styling",
+    rating: 4.6,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715833/mroztsobgzv89pnanu6z.jpg",
+    price_range: "3000 - 8000",
+  },
+  {
+    name: "Personal Cybersecurity Training and Consultations",
+    rating: 4.9,
+    image:
+      "https://res.cloudinary.com/dhvuyehnq/image/upload/v1697715833/mroztsobgzv89pnanu6z.jpg",
+    price_range: "10000 - 20000",
+  },
+];
 
 export const role = ["admin", "user"];
 export const roleOptions = role.map((role: string) => {

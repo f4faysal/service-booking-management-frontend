@@ -225,6 +225,7 @@ const ServicesItem = () => {
       </div>
 
       <Row
+        gutter={[20, 20]}
         style={{
           marginTop: "70px",
           padding: "20px 0",
@@ -343,7 +344,7 @@ const ServicesItem = () => {
         )}
       </Row>
 
-      <Row>
+      <Row gutter={[20, 20]}>
         <Col
           style={{
             display: "flex",

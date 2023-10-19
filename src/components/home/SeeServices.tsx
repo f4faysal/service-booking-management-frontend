@@ -64,20 +64,21 @@ const SeeServices = () => {
           style={{
             padding: "20px 0",
           }}
+          gutter={[10, 10]}
         >
           {/*  */}
-          {services?.slice(0, 8)?.map((service: any, i: any) => {
+          {services?.slice(0, 10)?.map((service: any, i: any) => {
             return (
-              <Col span={6} order={i} key={i}>
+              <Col span={4.5} order={i} key={i}>
                 <Link href={`/services/details/${service?.id}`}>
                   <Card
                     // onClick={() => router.push(`/services/details/${service?.id}`)}
                     hoverable
-                    style={{ width: 250, marginTop: "17px" }}
+                    style={{ width: 240 }}
                     cover={
                       <Avatar
                         shape="square"
-                        size={250}
+                        size={240}
                         src={service?.imageLink}
                       />
                     }

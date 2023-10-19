@@ -5,6 +5,7 @@ import { useReviewQuery } from "@/redux/api/reviewApi";
 import { HomeOutlined, IdcardOutlined } from "@ant-design/icons";
 import { Button, Col, Rate, Row, message } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import CustomerReview from "./ui/CustomerReview";
 import RelatedServices from "./ui/RelatedServices";
@@ -33,7 +34,7 @@ const DeatilsBody = ({ service }: any) => {
 
   return (
     <div>
-      <Row>
+      <Row gutter={[20, 20]}>
         <Col span={24}>
           <div
             style={{
@@ -160,7 +161,7 @@ const DeatilsBody = ({ service }: any) => {
           </div>
         </Col>
       </Row>
-      <Row>
+      <Row gutter={[20, 20]}>
         <Col
           style={{
             padding: "1rem",
@@ -312,23 +313,26 @@ const DeatilsBody = ({ service }: any) => {
               </p>
             </div>
 
-            <Button
-              style={{
-                marginTop: "10px",
-                width: "100%",
-                height: "40px",
-                backgroundColor: "yellowGreen",
-                color: "#fff",
-              }}
-              onClick={() => handelBook(service)}
-            >
-              Book Now
-              <IdcardOutlined
+            <Link href={`/booking-requst/${service?.id}`}>
+              <Button
                 style={{
-                  marginLeft: "5px",
+                  marginTop: "10px",
+                  width: "100%",
+                  height: "40px",
+                  backgroundColor: "yellowGreen",
+                  color: "#fff",
                 }}
-              />
-            </Button>
+                // onClick={() => handelBook(service)}
+              >
+                Book Now
+                <IdcardOutlined
+                  style={{
+                    marginLeft: "5px",
+                  }}
+                />
+              </Button>
+            </Link>
+
             <Button
               style={{
                 marginTop: "10px",

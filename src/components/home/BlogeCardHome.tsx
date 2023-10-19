@@ -4,7 +4,8 @@ import { useBlogsQuery } from "@/redux/api/blogApi";
 import { CalendarOutlined } from "@ant-design/icons";
 import { Avatar, Card, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
-const BlogeCard = () => {
+
+const BlogeCardHome = () => {
   const { data, isLoading } = useBlogsQuery({});
   const blogs = data?.data;
   if (isLoading) {
@@ -18,19 +19,19 @@ const BlogeCard = () => {
         }}
         gutter={[20, 20]}
       >
-        {blogs?.map((blog: any, i: number) => (
+        {blogs?.slice(0, 4).map((blog: any, i: number) => (
           <Col
             style={{
               marginBottom: "20px",
             }}
             key={i}
-            span={8}
+            span={6}
           >
             <Card
               hoverable
-              style={{ width: 340 }}
+              style={{ width: 290 }}
               cover={
-                <Avatar shape={"square"} size={340} src={blog?.imageLink} />
+                <Avatar shape={"square"} size={290} src={blog?.imageLink} />
               }
             >
               <p
@@ -72,4 +73,4 @@ const BlogeCard = () => {
   );
 };
 
-export default BlogeCard;
+export default BlogeCardHome;

@@ -28,6 +28,7 @@ const CategoriesOption = () => {
         style={{
           padding: "20px 0",
         }}
+        gutter={[20, 20]}
       >
         {categories?.length > 0 ? (
           categories?.map((category: any, i: any) => {
