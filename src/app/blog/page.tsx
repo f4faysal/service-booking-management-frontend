@@ -1,3 +1,4 @@
+import BlogeCard from "@/components/BlogeCard";
 import SMBreadcrumb from "@/components/ui/Breadcrumb";
 import Container from "@/components/ui/container";
 import Footer from "@/components/ui/footer";
@@ -14,15 +15,46 @@ const Blogs = () => {
       <Navbar />
 
       <Container>
-        <SMBreadcrumb
-          items={[
-            { label: "Home", path: "/" },
-            { label: "Blog", path: "/blog" },
-          ]}
-        />
-        <h1>Blogs</h1>
+        {/* bredcone and baner */}
+        <div
+          style={{
+            width: "100%",
+            height: "200px",
+            backgroundColor: "#16162e",
+            margin: "20px 0",
+            borderRadius: "15px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "relative",
+          }}
+        >
+          <h1
+            style={{
+              color: "#fff",
+              fontSize: "50px",
+              fontWeight: "bold",
+            }}
+          >
+            Latest Blog Post
+          </h1>
+          <br />
+          <div>
+            <SMBreadcrumb
+              items={[
+                { label: "Home", path: "/" },
+                { label: "Blog", path: "/blog" },
+              ]}
+              style={{
+                color: "#fff",
+                fontSize: "17px",
+              }}
+            />
+          </div>
+        </div>
+        <BlogeCard />
       </Container>
-
       <Footer />
     </div>
   );
