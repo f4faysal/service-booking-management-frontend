@@ -2,6 +2,8 @@
 
 Welcome to the Motel Service Booking and Management Website repository! This comprehensive online platform allows users to discover, book, and manage a wide range of services. The project includes user-facing features, admin-facing features, and super admin-facing features, all designed to provide an excellent user experience.
 
+![Motel Service Booking and Management](https://res.cloudinary.com/dhvuyehnq/image/upload/v1698605542/uzudpcv6jtq9ceymhbi5.png)
+
 ## Live Site
 
 - **Motel Front-End:** [Live Site](https://motel-front-end.vercel.app/)
@@ -17,7 +19,7 @@ The project is built with the following technologies:
 
 - **Front-End:**
   - [Next.js](https://nextjs.org/)
-  - [Ant Design](https://ant.design/)
+  - [Ant Design](https://ant.design/) 5.0
   - [Redux Toolkit (RTK)](https://redux-toolkit.js.org/)
   - [React Query](https://react-query.tanstack.com/)
 
@@ -83,3 +85,28 @@ The project supports a variety of services, including but not limited to:
 - Interior Design and Decor Service
 - Wedding Planning and Coordination Service
 
+## Access Information
+
+### Super Admin
+- Email: superadmin@gmail.com
+- Password: 123456Aa
+
+### Admin
+- Email: admin@gmail.com
+- Password: 123456Aa
+
+### User
+- Email: user@gmail.com
+- Password: 123456Aa
+
+## Source Code
+
+- [Frontend Repository](https://github.com/f4faysal/service-booking-management-frontend)
+- [Dashboard Repository](https://github.com/f4faysal/service-booking-management-dashboard)
+- [Backend Repository](https://github.com/f4faysal/service-booking-management-core-service)
+
+## Recorded Video
+
+You can watch a recorded video of the project [here](https://drive.google.com/drive/folders/1YJCfmWHpTgdnkOC7uCFp_o_AA9f5_w1C?usp=sharing).
+
+Feel free to explore the live sites and repositories to learn more about the project!
